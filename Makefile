@@ -6,6 +6,7 @@ output.zip: clean libcogito.so
 
 clean:
 	rm -f output.zip
+	rm -f *.pyc
 
 libcogito.so:
 	curl https://s3.amazonaws.com/public.localytics/artifacts/cogito/amazon/libcogito.so -o libcogito.so
