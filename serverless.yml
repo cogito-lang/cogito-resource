@@ -1,0 +1,13 @@
+service: cogito
+
+provider:
+  name: aws
+  runtime: python2.7
+
+package:
+  exclude:
+  - test
+
+functions:
+  cogito:
+    handler: handler.handle

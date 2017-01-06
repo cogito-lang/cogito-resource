@@ -4,4 +4,18 @@ A CloudFormation custom resource lambda handler that enables you to write [cogit
 
 ## Getting started
 
-Run `make` to generate `output.zip`, which will have zipped up both the handler, the vendored `cogito` wrapper, and the `libcogito` shared object file that was compiled for Amazon Linux. You can then upload that zip as a lambda.
+Download the latest `libcogito` from the Localytics public S3 endpoint:
+
+    curl https://s3.amazonaws.com/public.localytics/artifacts/cogito/amazon/libcogito.so -o libcogito.so
+
+Install the dependencies into the `vendor` directory:
+
+    pip install -t vendor -r requirements.txt
+
+Ensure you have [`serverless`](https://serverless.com/) installed:
+
+    npm install -g serverless
+
+Run `serverless` to deploy:
+
+    serverless deploy
