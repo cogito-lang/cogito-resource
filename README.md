@@ -56,3 +56,7 @@ Deploy your CloudFormation stack and you will now have an IAM ManagedPolicy reso
 ```
 
 For a more verbose example, see the [example](example) directory.
+
+## Development
+
+To test the lambda handler, run `python test/server.py`. This will fork into two processes, one running a server hosted to receive the callback, and one sending a request to the handler. It then asserts against the returned JSON response.
