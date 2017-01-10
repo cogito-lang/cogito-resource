@@ -1,0 +1,45 @@
+{
+  "Resources": {
+    "CogitoPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Deny",
+              "Action": [
+                "ec2:RebootInstances",
+                "ec2:StopInstances",
+                "ec2:TerminateInstances",
+                "ec2:DeleteVolume"
+              ],
+              "Resource": "*"
+            },
+            {
+              "Effect": "Deny",
+              "Action": [
+                "logs:DeleteLogGroup",
+                "logs:DeleteLogStream",
+                "logs:DeleteRetentionPolicy",
+                "logs:PutRetentionPolicy"
+              ],
+              "Resource": "*"
+            },
+            {
+              "Effect": "Deny",
+              "Action": [
+                "elasticloadbalancing:ConfigureHealthCheck",
+                "elasticloadbalancing:DeleteLoadBalancerListeners",
+                "elasticloadbalancing:DeregisterInstancesFromLoadBalancer",
+                "elasticloadbalancing:ModifyLoadBalancerAttributes",
+                "elasticloadbalancing:RegisterInstancesWithLoadBalancer"
+              ],
+              "Resource": "*"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

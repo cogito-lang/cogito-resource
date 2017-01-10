@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+import hashlib
 
 here = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(here, 'vendor'))
@@ -13,7 +14,6 @@ import cogito
 def handle(event, context):
     response = {
         'Status': 'SUCCESS',
-        'PhysicalResourceId': event['PhysicalResourceId'],
         'StackId': event['StackId'],
         'RequestId': event['RequestId'],
         'LogicalResourceId': event['LogicalResourceId']
@@ -21,8 +21,12 @@ def handle(event, context):
 
     try:
         converted = cogito.to_json(event['ResourceProperties']['Policy'])
+        response['PhysicalResourceId'] = hashlib.md5(converted).hexdigest()
         response['Data'] = {}
-        response['Data']['Policy'] = converted
+        response['Data']['PolicyDocument'] = json.dumps({
+            'Version': '2012-10-17',
+            'Statement': json.loads(converted)
+        })
     except cogito.CogitoError as exception:
         response['Status'] = 'FAILED'
         response['Resource'] = exception.message
