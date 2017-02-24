@@ -69,7 +69,10 @@ def to_iam(args):
     return response
 
 
-def to_json(args):
+def to_json(args, subs=None):
+    for key, value in (subs or {}).items():
+        args = args.replace("${{{}}}".format(key), value)
+
     buf = cg_buf_build()
     if cg_to_json(buf, args) != 0:
         raise CogitoError("JSON conversion failed")

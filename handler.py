@@ -20,7 +20,8 @@ def handle(event, context):
     }
 
     try:
-        converted = cogito.to_json(event['ResourceProperties']['Policy'])
+        converted = cogito.to_json(event['ResourceProperties']['Policy'],
+                                   event['ResourceProperties'].get('Substitutions', {}))
         response['PhysicalResourceId'] = hashlib.md5(converted).hexdigest()
         response['Data'] = {}
         response['Data']['PolicyDocument'] = json.dumps({
