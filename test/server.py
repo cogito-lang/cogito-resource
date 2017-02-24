@@ -38,7 +38,13 @@ if __name__ == "__main__":
             'StackId': 'stack-id',
             'RequestId': 'request-id',
             'LogicalResourceId': 'logical-resource-id',
-            'ResourceProperties': { 'Policy': 'ALLOW a ON b;' }
+            'ResourceProperties': {
+                'Policy': 'ALLOW service:action ON aws:${accountId}:${region}:resource;',
+                'Substitutions': {
+                    'accountId': '012345',
+                    'region': 'us-east-1'
+                }
+            }
         }
         handler.handle(request, None)
 
@@ -51,7 +57,9 @@ if __name__ == "__main__":
         os.wait()
 
         policy = json.loads(''.join(lines))
-        if policy['Statement'][0]['Action'][0] == 'a' and policy['Statement'][0]['Resource'][0] == 'b':
+        if (policy['Statement'][0]['Action'][0] == 'service:action' and
+            policy['Statement'][0]['Resource'][0] == 'aws:012345:us-east-1:resource'):
+
             print 'Passed'
         else:
             print 'Failed'
