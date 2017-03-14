@@ -7,35 +7,57 @@
           "Version": "2012-10-17",
           "Statement": [
             {
-              "Effect": "Deny",
               "Action": [
-                "ec2:RebootInstances",
-                "ec2:StopInstances",
-                "ec2:TerminateInstances",
-                "ec2:DeleteVolume"
+                "dynamodb:BatchGetItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:CreateTable",
+                "dynamodb:DeleteItem",
+                "dynamodb:DeleteTable",
+                "dynamodb:DescribeTable",
+                "dynamodb:GetItem",
+                "dynamodb:PutItem",
+                "dynamodb:Query",
+                "dynamodb:Scan",
+                "dynamodb:UpdateItem",
+                "dynamodb:UpdateTable",
+                "dynamodb:UpdateTable"
               ],
-              "Resource": "*"
+              "Resource": [
+                "arn:aws:dynamodb:us-east-1:000123456789:table/adattribution*",
+                "arn:aws:dynamodb:us-east-1:000123456789:table/ldi_lookup*"
+              ],
+              "Effect": "Allow"
             },
             {
-              "Effect": "Deny",
               "Action": [
-                "logs:DeleteLogGroup",
-                "logs:DeleteLogStream",
-                "logs:DeleteRetentionPolicy",
-                "logs:PutRetentionPolicy"
+                "dynamodb:BatchGetItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:DescribeTable",
+                "dynamodb:GetItem",
+                "dynamodb:PutItem",
+                "dynamodb:Query",
+                "dynamodb:Scan",
+                "dynamodb:UpdateItem",
+                "dynamodb:UpdateTable"
               ],
-              "Resource": "*"
+              "Resource": [
+                "arn:aws:dynamodb:us-east-1:000123456789:table/dedup*",
+                "arn:aws:dynamodb:us-east-1:000123456789:table/apps*",
+                "arn:aws:dynamodb:us-east-1:000123456789:table/devices*",
+                "arn:aws:dynamodb:us-east-1:000123456789:table/appstate*",
+                "arn:aws:dynamodb:us-east-1:000123456789:table/identifiers*",
+                "arn:aws:dynamodb:us-east-1:000123456789:table/marketing*"
+              ],
+              "Effect": "Allow"
             },
             {
-              "Effect": "Deny",
               "Action": [
-                "elasticloadbalancing:ConfigureHealthCheck",
-                "elasticloadbalancing:DeleteLoadBalancerListeners",
-                "elasticloadbalancing:DeregisterInstancesFromLoadBalancer",
-                "elasticloadbalancing:ModifyLoadBalancerAttributes",
-                "elasticloadbalancing:RegisterInstancesWithLoadBalancer"
+                "dynamodb:ListTables"
               ],
-              "Resource": "*"
+              "Resource": [
+                "arn:aws:dynamodb:us-east-1:000123456789:*"
+              ],
+              "Effect": "Allow"
             }
           ]
         }
