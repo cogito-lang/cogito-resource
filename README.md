@@ -1,6 +1,6 @@
 # cogito-resource
 
-[![Build Status](https://travis-ci.com/localytics/cogito-resource.svg?token=kQUiABmGkzyHdJdMnCnv&branch=master)](https://travis-ci.com/localytics/cogito-resource)
+[![Build Status](https://travis-ci.org/localytics/cogito-resource.svg?branch=master)](https://travis-ci.org/localytics/cogito-resource)
 
 A CloudFormation [custom resource](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html) lambda handler that enables you to write [cogito](https://github.com/localytics/libcogito) syntax in your CloudFormation templates.
 
