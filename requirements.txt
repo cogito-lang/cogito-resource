@@ -1,2 +1,2 @@
 cogito==0.0.1
-requests==2.13.0
+requests==2.14.2
