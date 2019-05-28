@@ -65,7 +65,7 @@ To test the lambda handler, run `python test/server.py`. This will fork into two
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/cogito-lang/libcogito.
+Bug reports and pull requests are welcome on GitHub at https://github.com/cogito-lang/cogito-resource.
 
 ## License
 
