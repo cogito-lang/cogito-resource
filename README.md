@@ -1,8 +1,8 @@
 # cogito-resource
 
-[![Build Status](https://travis-ci.org/localytics/cogito-resource.svg?branch=master)](https://travis-ci.org/localytics/cogito-resource)
+[![Build Status](https://travis-ci.com/cogito-lang/cogito-resource.svg?branch=master)](https://travis-ci.com/cogito-lang/cogito-resource)
 
-A CloudFormation [custom resource](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html) lambda handler that enables you to write [libcogito](https://github.com/localytics/libcogito) syntax in your CloudFormation templates using the python [cogito](https://pypi.python.org/pypi/cogito) package.
+A CloudFormation [custom resource](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html) lambda handler that enables you to write [libcogito](https://github.com/cogito-lang/libcogito) syntax in your CloudFormation templates using the python [cogito](https://pypi.python.org/pypi/cogito) package.
 
 ## Dependencies
 
@@ -10,9 +10,9 @@ Ensure you have [`serverless`](https://serverless.com/) and [`pip`](https://pypi
 
 ## Getting started
 
-Download the latest `libcogito` from the Localytics public S3 endpoint:
+Download the latest `libcogito` amazon linux package from the GitHub release page:
 
-    curl https://s3.amazonaws.com/public.localytics/artifacts/cogito/amazon/libcogito.so -o libcogito.so
+    curl https://github.com/cogito-lang/libcogito/releases/download/v0.2.0/libcogito.so -o libcogito.so
 
 Install the python dependencies into the `vendor` directory:
 
@@ -62,3 +62,11 @@ For a more verbose example, see the [example](example) directory.
 ## Development
 
 To test the lambda handler, run `python test/server.py`. This will fork into two processes, one running a server hosted to receive the callback, and one sending a request to the handler. It then asserts against the returned JSON response.
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/cogito-lang/libcogito.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
