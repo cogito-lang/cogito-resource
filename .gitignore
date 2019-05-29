@@ -1,4 +1,7 @@
-/.serverless/
 /*.pyc
+__pycache__
+/env
+
+/.serverless/
 /libcogito.so
 /vendor/

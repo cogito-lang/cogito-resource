@@ -1,8 +1,10 @@
 sudo: required
 language: python
-python: 2.7
+branches:
+  only: master
+cache: pip
 before_install:
 - FILE=$(mktemp)
 - wget 'https://github.com/cogito-lang/libcogito/releases/download/v0.2.0/libcogito_0.2.0-1_amd64.deb' -qO $FILE
 - sudo dpkg -i $FILE && rm $FILE
-script: python test/server.py
+script: python test/resource_test.py
