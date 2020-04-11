@@ -1,6 +1,6 @@
 # cogito-resource
 
-[![Build Status](https://travis-ci.com/cogito-lang/cogito-resource.svg?branch=master)](https://travis-ci.com/cogito-lang/cogito-resource)
+[![Build Status](https://github.com/cogito-lang/cogito-resource/workflows/Main/badge.svg)](https://github.com/cogito-lang/cogito-resource/actions)
 
 A CloudFormation [custom resource](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html) lambda handler that enables you to write [libcogito](https://github.com/cogito-lang/libcogito) syntax in your CloudFormation templates using the python [cogito](https://pypi.python.org/pypi/cogito) package.
 
